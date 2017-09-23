@@ -94,7 +94,7 @@ A really helpful resource for doing this project and creating smooth trajectorie
 
 ## Finding the Minimum Cost lane
   See `EgoCar::rank_lanes`
-  In finding the minimum cost lane, each lane is examined by considering the space ahead of the current car. The following metrics are considered
+  In finding the minimum cost lane, each lane is examined by considering the space ahead of the current car. The following metrics are considered 
     1. Distance cost: cost based on the distance between the controlled car and the closest car ahead. This is given by
     `distance cost = weight_distance *(((max_obs_distance-closest_distance)/max_obs_distance))`
     where `max_obs_distance` denotes how far ahead the car looks, `weight_distance` denotes how much importance should be placed on this cost and `closest_distance` refers to the actual distance between the controlled car and the closest car ahead in that lane.
