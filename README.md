@@ -133,8 +133,8 @@ A really helpful resource for doing this project and creating smooth trajectorie
 ## Emergency collisions
   In the case where a car is getting too close, the following rules apply:
   * If there is another car behind the self-driving, the self-driving car matches the speed of that car if its speed is less than that of the self-driving
-  * If there is no car behind the self-driving car, the car attempts to come to a complete stop at a high deceleration rate. 
+  * If there is no car behind the self-driving car, the car attempts to come to a complete stop at a high deceleration rate.
 
 
-
+## Demo
 [See here](https://www.youtube.com/watch?v=4bjPGdgcmnQ)
