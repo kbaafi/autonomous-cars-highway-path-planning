@@ -96,17 +96,16 @@ A really helpful resource for doing this project and creating smooth trajectorie
   See `EgoCar::rank_lanes`
   In finding the minimum cost lane, each lane is examined by considering the space ahead of the current car. The following metrics are considered
     1. Distance cost: cost based on the distance between the controlled car and the closest car ahead. This is given by
-      `distance cost = weight_distance *(((max_obs_distance-closest_distance)/max_obs_distance))`
-      where `max_obs_distance` denotes how far ahead the car looks, `weight_distance` denotes how much importance should be placed on this cost and `closest_distance` refers to the actual distance between the controlled car and the closest car ahead in that lane.
-      See function `EgoCar::distance_cost` in `egocar.cpp`
-    2. Velocity cost: cost based on the velocity of the closest car ahead.
-      Using the closest car ahead in the lane, the cost due to the velocity of the car ahead is given by
-      `velocity cost = weight_velocity*(|_max_velocity - velocity of closest car|/_max_velocity))`
-      See function `EgoCar::velocity_cost_ahead` in `egocar.cpp`
+    `distance cost = weight_distance *(((max_obs_distance-closest_distance)/max_obs_distance))`
+    where `max_obs_distance` denotes how far ahead the car looks, `weight_distance` denotes how much importance should be placed on this cost and `closest_distance` refers to the actual distance between the controlled car and the closest car ahead in that lane.
+    See function `EgoCar::distance_cost` in `egocar.cpp`
+    2. Velocity cost: cost based on the velocity of the closest car ahead. Using the closest car ahead in the lane, the cost due to the velocity of the car ahead is given by
+    `velocity cost = weight_velocity*(|_max_velocity - velocity of closest car|/_max_velocity))`
+    See function `EgoCar::velocity_cost_ahead` in `egocar.cpp`
     3. Lane Change cost: the cost related to moving the car into the next lane. This is given by
-      `lane change cost = |destination lane - current lane|/(number of lanes-1)`
-      See function `EgoCar::lane_change_cost` in `egocar.cpp`
-  The lane with the total minimum cost is considered as the optimal cost lane.
+    `lane change cost = |destination lane - current lane|/(number of lanes-1)`
+    See function `EgoCar::lane_change_cost` in `egocar.cpp`
+The lane with the total minimum cost is considered as the optimal cost lane.
 
 ### A more robust minimum cost lane
   A safer minimum cost lane can be found by setting a baseline that looks ahead from a distance slightly behind the car. This way cars directly adjacent to and slightly behind the self-driving car are taken into consideration. This may lead a less responsive car in thick traffic but on the other hand produces a much safer driving experience.
